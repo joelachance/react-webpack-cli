@@ -2,13 +2,13 @@
   "name": "react-webpack-cli",
   "version": "1.0.0",
   "description": "A CLI for Node, React, Webpack & Babel projects.",
-  "main": "./lib/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": ""
   },
   "scripts": {
-    "build": "babel src --out-dir babel"
+    "babel": "babel start.js --out-file index.js"
   },
   "author": "",
   "license": "ISC",

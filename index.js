@@ -1,24 +1,29 @@
 #!/usr/bin/env node
+'use strict';
 
-var program = require('commander')
-var fs = require('fs')
-var elegantStatus = require('elegant-status')
-var templ = require('./templates/temp.js')
+var _commander = require('commander');
 
-var mkdir = function (path) {
-  return fs.mkdirSync(path)
-}
+var _commander2 = _interopRequireDefault(_commander);
 
-var scaffold = function (appName) {
-  var done = elegantStatus(`Generating commands`)
-  mkdir('./reactgen')
-  done(true)
-}
+var _fs = require('fs');
 
-program
-  .version('0.0.1')
-  .command('react')
-  .description('Generates a react app with build tools')
-  .option('-h, --help', 'help')
-  .action(scaffold())
-  .parse(process.argv)
+var _fs2 = _interopRequireDefault(_fs);
+
+var _elegantStatus = require('elegant-status');
+
+var _elegantStatus2 = _interopRequireDefault(_elegantStatus);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_commander2.default.version('0.0.1').command('react <name>').parse(process.argv);
+
+var name = process.argv[process.argv.length - 1];
+
+var scaffold = function scaffold() {
+  var done = (0, _elegantStatus2.default)('Generating commands');
+  _fs2.default.mkdirSync('../' + name);
+  _fs2.default.writeFileSync('../' + name + '/index.js');
+  done(true);
+};
+
+scaffold();
