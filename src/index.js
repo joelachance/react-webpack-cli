@@ -32,9 +32,9 @@ function scaffold (name) {
   var done = elegantStatus(chalk.green('DONE'))
 
   if (name) {
-    fs.mkdirSync("../" + name)
-    fs.mkdirSync("../" + name + "/src")
-    fs.mkdirSync("../" + name + "/src/components")
+    fs.mkdirSync("./" + name)
+    fs.mkdirSync("./" + name + "/src")
+    fs.mkdirSync("./" + name + "/src/components")
 
     fs.writeFile("../" + name + "/src/components/Component.js", componentTempl)
     fs.writeFile("../" + name + "/src/index.js", indexTempl)
